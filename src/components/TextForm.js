@@ -44,11 +44,11 @@ const handleExtraSpace = ()=>{
   return (
     <>
      <div className='container' style={{color: props.mode==='dark'?'white':'#042743'}} >
-     <h1>{props.heading} </h1>
+     <h1 className='mb-2'>{props.heading} </h1>
       <div className="mb-3">
     
     
-  <textarea className="form-control" id="mybox" rows="8" style={{backgroundColor: props.mode==='dark'?'gray':'white' , color:props.mode==='dark'?'white':'#042743'}} value={text} onChange={handleOnChange}></textarea>
+  <textarea className="form-control" id="mybox" rows="8" style={{backgroundColor: props.mode==='dark'?'#3c384a':'white' , color:props.mode==='dark'?'white':'#042743'}} value={text} onChange={handleOnChange}></textarea>
 </div>
 <b className="btn btn-primary mx-1 my-2" onClick={handleUpClick}>Convert to Uppercase </b>
 <b className="btn btn-primary mx-1 my-2" onClick={handleLoClick}>Convert to Lowercase </b>
@@ -58,10 +58,10 @@ const handleExtraSpace = ()=>{
  </div>
  <div className="container my-3"  style={{color: props.mode==='dark'?'white':'#042743'}}>
   <h2>Your text summary</h2>
-  <p>{text.split(" ").length} words ,{text.length} characters</p>
+  <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words ,{text.length} characters</p>
   <p>{0.008 * text.split(" ").length} Minutes read</p>
   <h2>Preview</h2>
-  <p>{text.length>0?text:"Enter something int the above to preview it here"}</p>
+  <p>{text.length>0?text:"Nothing is to preview"}</p>
  </div>
  
     </>
